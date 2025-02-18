@@ -40,6 +40,11 @@ public class LoginInfo {
     @JsonIgnore
     private Band band;
 
+    @OneToOne(mappedBy = "loginInfo")
+    @JoinColumn(name = "loginInfo_id")
+    @JsonIgnore
+    private Employee employee;
+
 
     public LoginInfo(String emailId, String password, String userType) {
         this.emailId = emailId;
@@ -108,6 +113,14 @@ public class LoginInfo {
 
     public void setBand(Band band) {
         this.band = band;
+    }
+
+    public Employee getEmployee(){
+        return employee;
+    }
+
+    public void setEmployee(Employee employee){
+        this.employee = employee;
     }
 }
 
