@@ -13,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import onetoone.Orders.Order;
 
 /**
  * @author Peter Yehl
@@ -30,7 +31,7 @@ public class Employee {
 
     //create order class
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Order> orders = new ArrayList<>();
+    private Set<Order> orders = new HashSet<>();
     
 
     // ============ Getters & Setters for each field ================//
